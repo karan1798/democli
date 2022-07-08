@@ -20,11 +20,13 @@ for(let i of Object.keys(packages.dependencies)){
 function add(a,b){
     // console.log("Sum is->>",a+b);
     sum=a+b
-    return sum
+    console.log(sum)
 }
 
-let sumOfTwo=add(2,3)
+// let sumOfTwo=add(a,b)
 
-console.log("sum is->>",sumOfTwo);
+// console.log("sum is->>",sumOfTwo);
 
 console.table(packages_arr);
+
+module.exports=add
