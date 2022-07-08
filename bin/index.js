@@ -1,32 +1,44 @@
 #! /usr/bin/env node
 // console.log("Hello World!");
+const path=require('path')
+// const packages=require("../package.json")
 
-const packages=require("../package.json")
+const currentPath=require(path.join(path.resolve("./"),'./package.json'))
 
+// console.log(currentPath.dependencies);
 
+// let sum;
+function packageDep(currentPath){
+    // console.log(currentPath);
+    let packages_arr=[]
 
-let packages_arr=[]
-let sum;
-
-for(let i of Object.keys(packages.dependencies)){
-    let pakageDetails={
-        name:"",
-        version:""
+    // let sum;
+    for(let i of Object.keys(currentPath.dependencies)){
+        let pakageDetails={
+            name:"",
+            version:""
+        }
+        pakageDetails.name=i;
+        pakageDetails.version=currentPath.dependencies[i]
+        packages_arr.push(pakageDetails)
     }
-    pakageDetails.name=i;
-    pakageDetails.version=packages.dependencies[i]
-    packages_arr.push(pakageDetails)
+    console.table(packages_arr);    
+
 }
-function add(a,b){
+packageDep(currentPath)
+exports.add=(a,b)=>{
     // console.log("Sum is->>",a+b);
-    sum=a+b
-    console.log(sum)
+    // sum=a+b
+    console.log(a+b)
 }
 
 // let sumOfTwo=add(a,b)
 
 // console.log("sum is->>",sumOfTwo);
 
-console.table(packages_arr);
 
-module.exports=add
+// module.exports=add
+
+exports.showPackage=()=>{
+
+}
