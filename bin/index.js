@@ -16,4 +16,8 @@ for(let i of Object.keys(packages.dependencies)){
     pakageDetails.version=packages.dependencies[i]
     packages_arr.push(pakageDetails)
 }
+function add(a,b){
+    console.log("Sum is->>",a+b);
+}
+
 console.table(packages_arr);
